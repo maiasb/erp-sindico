@@ -7,6 +7,7 @@ import styles from "./menu.module.css";
 const itens = [
   { href: "/casas", rotulo: "Casas" },
   { href: "/moradores", rotulo: "Moradores" },
+  { href: "/contas", rotulo: "Contas" },
 ];
 
 export default function Menu() {
