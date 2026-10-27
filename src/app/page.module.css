@@ -1,0 +1,24 @@
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  border: 1px solid #8884;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.card strong {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 2rem;
+}

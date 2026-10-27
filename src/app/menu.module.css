@@ -1,0 +1,24 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 200px;
+  flex-shrink: 0;
+  padding: 1rem;
+  border-right: 1px solid #8884;
+}
+
+.menu a {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+.menu a:hover,
+.menu a.ativo {
+  background: #8882;
+}
+
+.marca {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
