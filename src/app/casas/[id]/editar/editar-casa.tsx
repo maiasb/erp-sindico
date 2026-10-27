@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { Casa } from "@/lib/dados";
+import type { Casa } from "@/types/casa";
 import CasaForm from "../../casa-form";
 
 export default function EditarCasa({ id }: { id: string }) {

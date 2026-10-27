@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
-import { casas, moradores, type Morador } from "@/lib/dados";
+import { casas, moradores } from "@/lib/dados";
+import type { Morador } from "@/types/morador";
 import { lerCasa } from "@/lib/casas";
 
 export async function GET(_req: NextRequest, ctx: RouteContext<"/api/casas/[id]">) {
@@ -22,13 +23,13 @@ export async function PUT(request: NextRequest, ctx: RouteContext<"/api/casas/[i
 
   let proximoId = Math.max(0, ...moradores.map((m) => m.id)) + 1;
   const atualizados: Morador[] = dados.moradores.map((m) => {
-    // Morador já da casa: atualiza no lugar e preserva as contas.
+    // Morador já da casa: atualiza no lugar.
     const existente = casa.moradores.find((x) => x.id === m.id);
     if (existente) {
       Object.assign(existente, { nome: m.nome, telefone: m.telefone, email: m.email });
       return existente;
     }
-    const novo = { id: proximoId++, nome: m.nome, telefone: m.telefone, email: m.email, contas: [] };
+    const novo = { id: proximoId++, nome: m.nome, telefone: m.telefone, email: m.email };
     moradores.push(novo);
     return novo;
   });

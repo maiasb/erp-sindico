@@ -1,9 +1,4 @@
-export type MoradorEntrada = {
-  id?: number;
-  nome: string;
-  telefone: string;
-  email: string;
-};
+import type { MoradorEntrada } from "@/types/morador";
 
 const texto = (v: unknown) => (typeof v === "string" ? v.trim() : "");
 

@@ -1,4 +1,6 @@
-import { casas, moradores, type Morador } from "@/lib/dados";
+import { casas, moradores } from "@/lib/dados";
+import type { Casa } from "@/types/casa";
+import type { Morador } from "@/types/morador";
 import { lerCasa } from "@/lib/casas";
 
 export async function GET() {
@@ -18,13 +20,13 @@ export async function POST(request: Request) {
     nome: m.nome,
     telefone: m.telefone,
     email: m.email,
-    contas: [],
   }));
 
-  const casa = {
+  const casa: Casa = {
     id: Math.max(0, ...casas.map((c) => c.id)) + 1,
     numero: dados.numero,
     moradores: novos,
+    contas: [],
   };
   casas.push(casa);
   moradores.push(...novos);

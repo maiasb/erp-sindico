@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import type { Casa } from "@/lib/dados";
+import type { Casa } from "@/types/casa";
 import styles from "../moradores/page.module.css";
 
 export default function CasasPage() {
@@ -32,7 +32,7 @@ export default function CasasPage() {
             <ul>
               {c.moradores.map((m) => (
                 <li key={m.id}>
-                  {m.nome} · {m.telefone} · {m.email}
+                  <Link href={`/casas/${c.id}/moradores/${m.id}`}>{m.nome}</Link> · {m.telefone} · {m.email}
                 </li>
               ))}
             </ul>

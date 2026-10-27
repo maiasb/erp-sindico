@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type { Casa } from "@/lib/dados";
+import type { Casa } from "@/types/casa";
+import type { MoradorEntrada } from "@/types/morador";
 import styles from "../moradores/page.module.css";
 
-type MoradorForm = { id?: number; nome: string; telefone: string; email: string };
-const vazio: MoradorForm = { nome: "", telefone: "", email: "" };
+const vazio: MoradorEntrada = { nome: "", telefone: "", email: "" };
 
 type Props = {
   titulo: string;
@@ -18,7 +18,7 @@ type Props = {
 export default function CasaForm({ titulo, url, metodo, inicial }: Props) {
   const router = useRouter();
   const [numero, setNumero] = useState(inicial?.numero ?? "");
-  const [moradores, setMoradores] = useState<MoradorForm[]>(
+  const [moradores, setMoradores] = useState<MoradorEntrada[]>(
     inicial?.moradores.map(({ id, nome, telefone, email }) => ({ id, nome, telefone, email })) ?? [],
   );
   const [erro, setErro] = useState("");
@@ -43,7 +43,7 @@ export default function CasaForm({ titulo, url, metodo, inicial }: Props) {
     setEnviando(false);
   }
 
-  function alterar(i: number, campo: keyof MoradorForm, valor: string) {
+  function alterar(i: number, campo: keyof MoradorEntrada, valor: string) {
     setMoradores((atual) => atual.map((m, j) => (j === i ? { ...m, [campo]: valor } : m)));
   }
 
